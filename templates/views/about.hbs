@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{>headerlinks}}
+  <title>About-TrueWeather</title>
+  <style>
+    
+    #imageContainer {
+      transition: opacity 1s ease-in-out;
+    }
+    .content-wrapper {
+      flex-grow: 1;
+    }
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  {{>navbar}}
+
+  <!-- main header -->
+  <div class="conatiner-fluid main_header">
+    <div class="row">
+      <!-- left side div   -->
+      <div class="col-md-6 col-12 main_header_right align-items-center">
+        <figure id="imageContainer">
+          <img src="images/boss-baby-01.png" alt="talib" class="img-fluid" title="talib hassan">
+        </figure>
+      </div>
+      <!-- right side div-->
+      <div class="col-md-6 col-12 main_header_left">
+        <p>Welcome to the weather app</p>
+        <h1>I Am A <span class="text_clr">CSE student</span> at NIT Hamirpur</h1>
+        <a href="https://instagram.com/talib.hassan_?igshid=YmMyMTA2M2Y=" target="_blank"><button>MY INSTAGRAM</button></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer code -->
+  {{>footer}}
+
+  <script src="https://kit.fontawesome.com/bef4a5b200.js" crossorigin="anonymous"></script>
+  <script>
+    // Array of image sources
+    const imageSources = [
+      "images/boss-baby-01.png",
+      "images/boss-baby-04.png",
+      "images/boss-baby-05.png",
+      "images/boss-baby-03.png",
+    ];
+
+    // Get the image container
+    const imageContainer = document.getElementById("imageContainer");
+
+    // Function to change image every 2 seconds
+    let index = 0;
+    setInterval(() => {
+      // Change the image source
+      imageContainer.innerHTML = `<img src="${imageSources[index]}" alt="talib" class="img-fluid" title="talib hassan">`;
+
+      // Move to the next image (loop back to the first image if at the end)
+      index = (index + 1) % imageSources.length;
+    }, 2000);
+  </script>
+
+</body>
+</html>

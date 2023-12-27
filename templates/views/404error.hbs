@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+{{>headerlinks}}
+<title>About-TrueWeather</title>
+
+  </head>
+  <body>
+  {{>navbar}}
+
+    <!-- main header -->
+    <div class="conatiner-fluid main_header_error">
+        <div class="row">
+            <!-- left side div   -->
+            <div class="col-md-6 col-12 main_header_left align-items-center">
+                <figure>
+                   <img src="images/404.png" alt="talib" class="img-fluid" title="404 error">
+                </figure>
+             
+                <p>Welcome to weather app</p>
+                <h1>{{errorMsg}}</h1>
+                <a href="/" target="_blank"><button>GO BACK TO HOME</button></a>
+            </div>
+          
+        
+        </div>
+        </div>
+
+        <!-- footer code -->
+      {{>footer}}
+    <script src="https://kit.fontawesome.com/bef4a5b200.js" crossorigin="anonymous"></script>
+
+  </body>
+</html>

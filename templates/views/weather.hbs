@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{>headerlinks}}
+  <title>CheckWeather</title>
+  <style>
+
+    video {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      transition: opacity 0.5s ease;
+      z-index: -2;
+    }
+    body {
+      height: 120vh;
+      display: flex;
+      flex-direction: column;
+  }
+    .tempInformation {
+      width: 40rem;
+      margin: auto;
+      min-height: 20rem;
+      background-color: rgba(32, 12, 50, 0.6);
+      border-radius: 1rem;
+      font-family: "roboto", sans-serif;
+      padding: 1rem; /* Add padding for better spacing */
+    }
+    
+    .row .temp_all {
+      margin-left: auto !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0px 0px 215px 0px;
+    }
+    
+    .top_layer {
+      width: 100%;
+      height: 20%;
+      background-color: rgb(36, 4, 58);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 1rem;
+    }
+    
+    .top_layer p {
+      color: rgb(255, 254, 254);
+      font-weight: 700;
+      padding: 2rem;
+      font-size: 1.5rem;
+    }
+    
+    .main_layer {
+      width: 100%;
+      height: 180%;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+    }
+    
+    .main_layer #city_name {
+      text-align: center;
+      padding: 2rem 0;
+      color: rgb(255, 247, 0);
+      font-weight: 500;
+      font-size: medium;
+    }
+    
+    .main_layer .middle_layer {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+  
+      color: white;
+    }
+    
+    .main_layer .middle_layer p,
+    .main_layer .middle_layer .fa {
+      font-size: 3rem;
+      font-weight: 900;
+    }
+    
+    .fa {
+      color: aqua;
+    }
+    
+    sup {
+      font-size: 2rem;
+      margin-top: -1rem;
+    }
+    
+    .data_hide {
+      color: white;
+      visibility: hidden;
+      transition: all 0.3s linear;
+    }
+    
+    span {
+      color: white;
+    }
+    
+    @media screen and (max-width: 768px) {
+      .tempInformation {
+        width: 80%;
+      }
+    
+      .main_layer #city_name {
+        font-size: 1.5rem;
+      }
+    
+      .main_layer .middle_layer p,
+      .main_layer .middle_layer .fa {
+        font-size: 2rem;
+      }
+    
+      sup {
+        font-size: 1.5rem;
+        margin-top: -0.5rem;
+      }
+    }
+    
+     
+    
+  </style>
+</head>
+<body>
+  {{>navbar}}
+
+  <video autoplay loop  muted plays-inline id="backgroundVideo">
+    <source id="Source" src="" type="video/mp4">
+    
+  </video>
+  
+
+  <!-- main header -->
+  <div class="conatiner-fluid main_header">
+    <div class="row">
+      <div class="col-md-6 col-12 temp_all mx-auto">
+        <div class="main_content">
+          <form class="temp_form">
+            <input type="text" id="cityName" placeholder="Enter your city name" autocomplete="off">
+            <input type="submit" value="dabaw" id="submitbtn">
+          </form>
+        </div>
+
+        <div class="tempInformation">
+          <div class="top_layer">
+            <p id="day">tuesday</p>
+            <p id="date">12 OCT</p>
+          </div>
+          <div class="main_layer" id="data_hide city_name">
+            <p id="city_name">get city output</p>
+            <div class="middle_layer data_hide">
+              <p id="temp"><span id ="temp_real_val">0</span> <sup>o</sup>C</p>
+              <p id="temp_status"><i class="fa-solid fa-cloud"></i></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer code -->
+  {{>footer}}
+
+  <script src="https://kit.fontawesome.com/bef4a5b200.js" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+  <script>
+    const day = document.getElementById('day');
+    const date = document.getElementById('date');
+  
+    const getCurrentDay = () => {
+      var weekday = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
+      let currentTime = new Date();
+      const day = weekday[currentTime.getDay()];
+      return day;
+    };
+  
+    const getCurrentTime = () => {
+      var currentTime = new Date();
+      const months = [
+      "JANUARY",
+      "FEBRUARY",
+      "MARCH",
+      "APRIL",
+      "MAY",
+      "JUNE",
+      "JULY",
+      "AUGUST",
+      "SEPTEMBER",
+      "OCTOBER",
+      "NOVEMBER",
+      "DECEMBER",
+    ];
+    
+      var month = months[currentTime.getMonth()];
+      var day = currentTime.getDate();
+      return { day, month };
+    };
+  
+    // Call the functions to set the initial values
+    day.innerHTML = getCurrentDay();
+    const { day: currentDay, month: currentMonth } = getCurrentTime();
+    date.innerHTML = `${currentDay} ${currentMonth}`;
+  </script>
+</body>
+</html>

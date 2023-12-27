@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{>headerlinks}}
+  <title>About-TrueWeather</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background: linear-gradient(45deg, #3498db, #2ecc71);
+      animation: gradientAnimation 10s ease infinite;
+      transition: background 0.5s ease;
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: background 0.3s ease;
+      text-align: center;
+    }
+
+    .card:hover {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .card h2 {
+      color: #333;
+    }
+
+    .card p {
+      color: #666;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-form label {
+      margin-bottom: 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: left;
+    }
+
+    .contact-form button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #45a049;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .social-links img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links img:hover {
+      transform: scale(1.2);
+    }
+
+    /* Custom Alert Styles */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .alert-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .close-btn {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .close-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  {{>navbar}}
+
+  <div class="container">
+    <div class="card">
+      <h2>Contact Me</h2>
+      <div class="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Your Name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Your Email">
+
+        <label for="message">Message:</label>
+        <textarea id="message" placeholder="Your Message"></textarea>
+
+        <button id="submitBtn">Submit</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Connect with Me</h2>
+      <div class="social-links">
+        <img src="images/linkedin.png" alt="LinkedIn">
+        <img src="images/github.png" alt="GitHub">
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay for Custom Alert -->
+  <div class="overlay" id="overlay">
+    <div class="alert-card">
+      <p>Your form has been submitted successfully!</p>
+      <button class="close-btn" onclick="closeOverlay()">Close</button>
+    </div>
+  </div>
+
+  {{>footer}}
+
+  <script src="https://kit.fontawesome.com/bef4a5b200.js" crossorigin="anonymous"></script>
+  <script>
+    // Add your JavaScript code here, if needed
+    document.getElementById('submitBtn').addEventListener('click', function () {
+      // Add your logic to handle form submission
+      // Display the custom alert overlay
+      document.getElementById('overlay').style.display = 'flex';
+    });
+
+    // Change background color using JavaScript
+    setTimeout(function () {
+      document.body.style.background = 'linear-gradient(45deg, #333, #222)';
+    }, 3000);
+
+    // Function to close the custom alert overlay
+    function closeOverlay() {
+      document.getElementById('overlay').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

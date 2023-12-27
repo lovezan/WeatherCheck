@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Piazzolla:opsz,wght@8..30,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Piazzolla", serif;
+}
+:root {
+  --main-bg: black;
+  --main-color: rgb(14, 246, 219);
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  margin: 0;
+}
+.main_menu {
+  background-color: var(--main-bg);
+}
+.navbar {
+  color: white;
+  padding: 2rem 0;
+}
+.navbar li {
+  margin-left: 20px;
+}
+
+.navbar a {
+  color: whitesmoke;
+  font-size: 1.8rem;
+}
+.navbar a:hover {
+  color: blue;
+}
+.navbar-toggler {
+  background-color: gray;
+}
+.fa-triangle {
+  transition: all linear;
+  animation: rot 2s linear infinite;
+  color: blue;
+}
+@keyframes rot {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.main_header {
+}
+
+.main_header_right figure img {
+  filter: drop-shadow(0 1rem 1rem black);
+  margin-left: 50px;
+  height: 520px;
+  margin-top: 60px;
+}
+.main_header_left {
+  height: 70rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  /* left:82vh;  position: absolute; */
+}
+.main_header_left .text_clr {
+  color: rgb(103, 103, 226);
+}
+.main_header_left p {
+  font-size: 2rem;
+}
+.main_header_left h1 {
+  font-size: 4rem;
+  margin: 1rem 0 4rem 0;
+  text-transform: capitalize;
+}
+.main_header_left button {
+  border: none;
+  padding: 0.8rem 1.8rem;
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  border-radius: 2rem;
+  box-shadow: 0 8px 6px -6px black;
+}
+.main_header_left button:hover {
+  box-shadow: 0 8px 6px -6px rgb(255, 255, 255);
+}
+.main_header_right {
+  height: 70rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  /* position: absolute; */
+  /* left:10vh; */
+}
+
+/* weather css */
+
+/* weather city search box */
+/* .main_content{
+    width: 170rem;
+} */
+.main_content {
+    width: inherit;
+  position: relative;
+  margin: 10rem auto 1rem;
+}
+.temp_form {
+  width: 100%;
+  position: relative;
+  margin: 10rem auto 1rem;
+}
+.temp_form input[type="text"] {
+  width: 100%;
+  padding: 2rem 5rem 2rem 2rem;
+  background: black;
+  color: aliceblue;
+  outline: none;
+  border: none;
+  font-size: 1.7rem;
+  border-radius: 3rem;
+}
+::placeholder {
+  color: rgb(170, 170, 170);
+}
+.temp_form input[type="submit"] {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: none;
+  background: aqua;
+  padding: 0 3rem;
+  border-radius: 3rem;
+  color: white;
+  font-size: 1.6rem;
+}
+.temp_form input[type="submit"]:hover {
+  color: aqua;
+  background-color: aliceblue;
+}
+
+/* footer code */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto; /* Push the footer to the bottom */
+  }
+footer p {
+  margin: 0;
+  text-align: center;
+  color: aliceblue;
+  line-height: 5rem;
+  font: size 1.4rem;
+}
+
+/* error page css */
+.main_header_error {
+  margin-left: 33.2%;
+}
+.main_header_error img {
+  height: 33rem;
+  width: 136rem;
+}
+
+/* responsive code */
+@media (max-width: 768px) {
+  .main_header {
+    height: 100vh;
+  }
+  .main_header_left {
+    height: auto;
+    margin: 5rem 0;
+  }
+  .main_header_right {
+    height: auto;
+    margin-top: 3rem;
+  }
+  .main_header_error {
+    margin-left: 3%;
+  }
+  .main_header_error img {
+    height: 30rem;
+    width: 100rem;
+  }
+  .main_header_error h1 {
+    font-size: 30px;
+  }
+  .main_header_right figure img {
+    margin-top: 0px;
+    margin-left: 8px;
+  }
+  .temp_form{
+    width: auto;
+  }
+  .tempInformation{
+    width: auto;
+  }
+}
